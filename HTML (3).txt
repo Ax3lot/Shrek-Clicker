@@ -1,0 +1,100 @@
+let shreks = 0;
+let shreksPerSecond = 0;
+let shrekifiers = 0;
+let shrekFactories = 0;
+let shrekPlanets = 0;
+let achievements = [];
+
+const shrekButton = document.getElementById("shrek-button");
+const shrekCounter = document.getElementById("shrek-counter");
+const upgrade1Button = document.getElementById("upgrade1");
+const upgrade2Button = document.getElementById("upgrade2");
+const upgrade3Button = document.getElementById("upgrade3");
+const shreksPerSecondDisplay = document.getElementById("shreks-per-second");
+const achievementsList = document.getElementById("achievements-list");
+
+const updateShrekCounter = () => {
+  shrekCounter.textContent = `Shreks: ${Math.floor(shreks)}`;
+  updateUpgrades();
+  updateShreksPerSecond();
+  saveProgress();
+};
+
+const updateShreksPerSecond = () => {
+  shreksPerSecondDisplay.textContent = `Shreks per second: ${shreksPerSecond}`;
+};
+
+const updateUpgrades = () => {
+  upgrade1Button.disabled = shreks < 10;
+  upgrade2Button.disabled = shreks < 100;
+  upgrade3Button.disabled = shreks < 1000;
+};
+
+const buyShrekifier = () => {
+  if (shreks >= 10) {
+    shreks -= 10;
+    shrekifiers++;
+    shreksPerSecond += 1;
+    updateShrekCounter();
+    checkAchievements();
+  }
+};
+
+const buyShrekFactory = () => {
+  if (shreks >= 100) {
+    shreks -= 100;
+    shrekFactories++;
+    shreksPerSecond += 5;
+    updateShrekCounter();
+    checkAchievements();
+  }
+};
+
+const buyShrekPlanet = () => {
+  if (shreks >= 1000) {
+    shreks -= 1000;
+    shrekPlanets++;
+    shreksPerSecond += 25;
+    updateShrekCounter();
+    checkAchievements();
+  }
+};
+
+const checkAchievements = () => {
+  if (shreks >= 100 && !achievements.includes('First 100 Shreks')) {
+    achievements.push('First 100 Shreks');
+    addAchievement('First 100 Shreks');
+  }
+  if (shreks >= 1000 && !achievements.includes('First 1000 Shreks')) {
+    achievements.push('First 1000 Shreks');
+    addAchievement('First 1000 Shreks');
+  }
+  if (shreksifiers >= 1 && !achievements.includes('First Shrekifier')) {
+    achievements.push('First Shrekifier');
+    addAchievement('First Shrekifier');
+  }
+};
+
+const addAchievement = (achievement) => {
+  const li = document.createElement("li");
+  li.textContent = achievement;
+  achievementsList.appendChild(li);
+};
+
+const autoBakeShreks = () => {
+  shreks += shreksPerSecond / 10;
+  updateShrekCounter();
+};
+
+const saveProgress = () => {
+  localStorage.setItem('shreks', shreks);
+  localStorage.setItem('shreksPerSecond', shreksPerSecond);
+  localStorage.setItem('shrekifiers', shrekifiers);
+  localStorage.setItem('shrekFactories', shrekFactories);
+  localStorage.setItem('shrekPlanets', shrekPlanets);
+  localStorage.setItem('achievements', JSON.stringify(achievements));
+};
+
+const loadProgress = () => {
+  shreks = parseFloat(localStorage.getItem('shreks')) || 0;
+  shreksPerSecond = parseFloat(localStorage.getItem('shreksPerSecond')) || 0

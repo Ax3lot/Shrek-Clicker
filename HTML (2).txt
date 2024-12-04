@@ -1,0 +1,101 @@
+/* Basic reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: #f0f8ff;
+  margin: 0;
+  padding: 0;
+}
+
+/* Game container */
+#game {
+  width: 90%;
+  margin: auto;
+  max-width: 800px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+h1 {
+  font-size: 2.5em;
+  color: #4caf50;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+}
+
+#shrek-counter {
+  font-size: 1.8em;
+  margin: 20px 0;
+  font-weight: bold;
+  color: #4caf50;
+}
+
+button {
+  padding: 15px 30px;
+  font-size: 1.5em;
+  cursor: pointer;
+  margin: 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  width: 100%;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+button img {
+  width: 150px;
+  height: auto;
+}
+
+#statistics, #achievements {
+  margin-top: 20px;
+}
+
+#upgrades {
+  margin-top: 40px;
+}
+
+h3 {
+  font-size: 1.5em;
+  color: #333;
+}
+
+/* Responsive Design for Mobile Devices */
+@media (max-width: 600px) {
+  button {
+    font-size: 1.2em;
+    padding: 10px 20px;
+  }
+
+  button img {
+    width: 120px;
+  }
+
+  h1 {
+    font-size: 2em;
+  }
+
+  #shrek-counter {
+    font-size: 1.5em;
+  }
+}
+

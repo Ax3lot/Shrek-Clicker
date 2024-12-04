@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shrek Clicker</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="game">
+    <h1>Shrek Clicker</h1>
+    <div id="shrek-counter">Shreks: 0</div>
+    <button id="shrek-button">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/0/0f/Shrek_logo.svg" alt="Shrek Logo"/>
+    </button>
+
+    <div id="upgrades">
+      <h3>Upgrades</h3>
+      <button id="upgrade1" disabled>Buy Shrekifier (Cost: 10 Shreks)</button>
+      <button id="upgrade2" disabled>Buy Shrek Factory (Cost: 100 Shreks)</button>
+      <button id="upgrade3" disabled>Buy Shrek Planet (Cost: 1000 Shreks)</button>
+    </div>
+
+    <div id="statistics">
+      <h3>Statistics</h3>
+      <p id="shreks-per-second">Shreks per second: 0</p>
+    </div>
+
+    <div id="achievements">
+      <h3>Achievements</h3>
+      <ul id="achievements-list">
+        <!-- Achievements will be added dynamically -->
+      </ul>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
